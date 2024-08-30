@@ -16,6 +16,9 @@ panic-probe = { version = "0.3", features = ["print-defmt"] }
 # We're using a Pico by default on this template
 rp-pico = "0.9"
 
+[dev-dependencies]
+embedded-test = { version = "0.4.0", features = ["panic-handler"] }
+
 # cargo build/run
 [profile.dev]
 codegen-units = 1
@@ -67,3 +70,7 @@ debug-assertions = false
 incremental = false
 lto = 'fat'
 opt-level = 3
+
+[[test]]
+name = "blinky_test"
+harness = false
